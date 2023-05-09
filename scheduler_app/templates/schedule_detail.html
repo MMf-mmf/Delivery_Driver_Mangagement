@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Schedule Detail{% endblock  %}
+
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+
+
+{% block content%}
+
+
+
+
+
+    <h2>Schedule Detail</h2>
+    <a  class="nav-item nav-link" href="{% url 'add_schedule_stop' id%}">Add Stop</a>
+    {% if schedule %}
+        <form method="post" name="schedule_form">
+            {% csrf_token %}
+              {{ schedule_form | crispy}}
+              <input id="schedule_id" type="hidden" value="{{schedule.id}}"/>
+            <button type="submit" class="btn btn-primary">Edit Schedule</button>
+        </form>
+
+        <form action="{% url 'delete_schedule' id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Delete Schedule">
+        </form>
+
+        {% if all_stops %}
+            {% include 'partials/schedule_stop_list.html'%}
+        {% endif %}
+    {% endif %}
+    
+{% comment %} see that the drivers location was taken at least once then if the stop is not complete then show the location to the user on the map {% endcomment %}
+{% if schedule.last_eta_update_timestamp %}
+    {% if schedule.status == 'NS' or schedule.status == 'IP' %}
+    <h3>Drivers Location</h3>
+    <div>Last updated: {{position_timestamp}}</div>
+        <!--The div element for the map -->
+        <div id="map"></div> 
+        <script src="{% static 'js/google_maps.js' %}" drivers_latitude='{{drivers_latitude}}' drivers_longitude='{{drivers_longitude}}' schedule_id='{{schedule.id}}'  defer></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap&v=weekly"
+            defer
+        ></script>
+    {% endif %}
+{% endif %}
+
+{% endblock  %}
+
+
+
+

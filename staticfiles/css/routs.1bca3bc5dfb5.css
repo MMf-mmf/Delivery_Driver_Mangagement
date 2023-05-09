@@ -1,0 +1,27 @@
+.stops-container {
+	color: rgb(71, 90, 148);
+	display: flex;
+}
+.stop-container {
+	margin-right: 4%;
+	padding: 1%;
+	border: 1px solid black;
+}
+.diable-link {
+	pointer-events: none;
+	color: rgba(173, 216, 230, 0.491);
+}
+.incomplete_stop {
+	background-color: rgb(225, 117, 117);
+}
+.completed_stop {
+	background-color: rgb(121, 230, 104);
+}
+
+/* TEST */
+#map {
+	height: 400px;
+	/* The height is 400 pixels */
+	width: 100%;
+	/* The width is the width of the web page */
+}

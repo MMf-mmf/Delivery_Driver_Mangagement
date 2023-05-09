@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit User{% endblock  %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+{% block content%}
+    <h2>Edit Driver</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ driver_form | crispy}}
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+    <form action="{% url 'delete_user' id%}" method="post">
+        <input type="submit" class="btn btn-danger" value="Delete">
+        {% csrf_token %}
+    </form>
+{% endblock  %}

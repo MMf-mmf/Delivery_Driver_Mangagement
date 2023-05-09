@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Stop Detail{% endblock  %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+{% block content%}
+    <h2>Stop Detail</h2>
+
+
+
+<form method="post" enctype="multipart/form-data" type="file" accept="image/*">
+    {% csrf_token %}
+    {{ form | crispy}}
+    {% if stop.image %}
+        <img width="200" src="{{ stop.image.url }}" alt="{{ stop.name }}">
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<form action="{% url 'delete_schedule_stop' id%}" method="post">
+    <input type="submit" class="btn btn-danger" value="Delete">
+    {% csrf_token %}
+</form>
+
+{% endblock  %}

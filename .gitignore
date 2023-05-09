@@ -1,0 +1,12 @@
+venv/
+.venv
+/.venv/
+.venv/
+*.pem
+.env
+*.json
+*.pyc
+
+shell.ipynb
+docker-compose.yml
+Dockerfile

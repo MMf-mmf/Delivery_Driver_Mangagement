@@ -1,0 +1,117 @@
+.pagination {
+	font-size: 350%;
+	margin-bottom: 3%;
+}
+.paginate_link {
+	color: rgb(255, 255, 255);
+	background-color: rgb(123, 80, 111);
+	margin: 15px 0px;
+	padding: 4px 16px;
+	border-radius: 15px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.stops-container {
+	color: rgb(71, 90, 148);
+	display: flex;
+}
+.stop-container {
+	margin-right: 4%;
+	padding: 1%;
+	border: 1px solid black;
+}
+.diable-link {
+	pointer-events: none;
+	color: rgba(224, 224, 224, 0.45);
+}
+.incomplete_stop {
+	background-color: rgb(225, 117, 117);
+}
+.completed_stop {
+	background-color: rgb(121, 230, 104);
+}
+.stops_page_wraper {
+	margin-top: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.company_details {
+	background-color: rgb(173, 222, 218);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 95%;
+	padding: 12px 0px;
+	font-size: xx-large;
+	font-weight: bold;
+	border-radius: 15px;
+}
+.contact_number_wraper {
+	color: rgb(255, 255, 255);
+	background-color: rgb(123, 80, 111);
+	margin: 15px 0px;
+	padding: 4px 16px;
+	border-radius: 15px;
+	font-weight: 600;
+}
+.contact_number {
+	color: rgb(224, 224, 224);
+	text-decoration: none;
+}
+.google_image_icon {
+	height: 150px;
+}
+.google_image_container {
+	display: flex;
+}
+
+.feed_back_form {
+	margin-top: 4%;
+	background-color: rgb(173, 222, 218);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 95%;
+	padding: 12px 0px;
+	font-size: xx-large;
+	font-weight: bold;
+	border-radius: 15px;
+}
+
+/* STYLE THE OPTIONS AS BUTTONS  (the ID goes on the select element)*/
+.select_buttons_container {
+}
+#select_to_buttons {
+	height: 44px;
+	border: none;
+	overflow: hidden;
+	background-color: transparent;
+}
+#select_to_buttons::-moz-focus-inner {
+	border: 0;
+}
+#select_to_buttons:focus {
+	outline: none;
+}
+#select_to_buttons option {
+	width: 60px;
+	font-size: 1.2em;
+	padding: 10px 0;
+	text-align: center;
+	margin-right: 20px;
+	display: inline-block;
+	cursor: pointer;
+	border: rgb(23, 74, 155) solid 2px;
+	border-radius: 5px;
+	color: rgb(23, 74, 155) solid 1px;
+}
+
+/* TEST */
+#map {
+	height: 700px;
+	/* The height is 400 pixels */
+	width: 100%;
+	/* The width is the width of the web page */
+	margin-bottom: 5%;
+}

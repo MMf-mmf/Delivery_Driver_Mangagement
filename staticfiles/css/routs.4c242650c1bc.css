@@ -1,0 +1,14 @@
+.stops-container {
+	color: rgb(71, 90, 148);
+}
+
+.diable-link {
+	pointer-events: none;
+	color: rgba(173, 216, 230, 0.491);
+}
+.incomplete_stop {
+	background-color: rgb(225, 117, 117);
+}
+.completed_stop {
+	background-color: rgb(121, 230, 104);
+}

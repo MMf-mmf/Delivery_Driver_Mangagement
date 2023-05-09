@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load drivers_tags %}
+{% block title %}Profile page{% endblock  %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+{% block content%}
+    <h2>{{user.username}}'s Profile</h2>
+    
+
+{% comment %} {% driver_stats request.user.id%} {% endcomment %}
+
+{% driver_data_summery request.user.id as driver_stats%}
+ <div class="driver_status">
+    <div>Total Bags Picked Up # {{driver_stats.total_bags}}.</div>
+    <div>Total Palets Picke Up # {{driver_stats.total_palets}}.</div>
+    <div>Total Schedules Completed # {{driver_stats.total_schedules}}.</div>
+</div> 
+<form method="post">
+    {% csrf_token %}
+    {{ form | crispy}}
+    <button type="submit" class="btn btn-primary">Edit Info</button>
+</form>
+
+{% endblock  %}
+

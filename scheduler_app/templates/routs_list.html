@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+ <a class="nav-item nav-link" href="{% url 'create_route' %}">Create Rout</a>
+
+ <h1>Routs</h1>   
+  {% if routs %}
+        <ul>
+          {% for route in routs  %}
+            <a href="{% url 'route_detail' route.id %}">{{ route.id }}</a>
+            <div>Route Name: {{route.name}}</div>
+            <br>
+          {% endfor %}
+        </ul>
+
+
+    {% else %}
+        <p>There are no Schedules.</p>
+  {% endif %} 
+
+
+
+
+
+
+
+
+
+
+
+{% endblock  %}

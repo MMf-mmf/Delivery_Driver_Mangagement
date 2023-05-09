@@ -1,0 +1,148 @@
+.pagination {
+	font-size: 350%;
+	margin-bottom: 3%;
+}
+.paginate_link {
+	color: rgb(255, 255, 255);
+	background-color: rgb(123, 80, 111);
+	margin: 15px 0px;
+	padding: 4px 16px;
+	border-radius: 15px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.stops-container {
+	color: rgb(71, 90, 148);
+	display: flex;
+}
+.stop-container {
+	margin-right: 4%;
+	padding: 1%;
+	border: 1px solid black;
+}
+.diable-link {
+	pointer-events: none;
+	color: rgba(224, 224, 224, 0.45);
+}
+.incomplete_stop {
+	background-color: rgb(225, 117, 117);
+}
+.completed_stop {
+	background-color: rgb(121, 230, 104);
+}
+.stops_page_wraper {
+	margin-top: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.company_details {
+	background-color: rgb(173, 222, 218);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 95%;
+	padding: 12px 0px;
+	font-size: xx-large;
+	font-weight: bold;
+	border-radius: 15px;
+}
+.contact_number_wraper {
+	color: rgb(255, 255, 255);
+	background-color: rgb(123, 80, 111);
+	margin: 15px 0px;
+	padding: 4px 16px;
+	border-radius: 15px;
+	font-weight: 600;
+}
+.contact_number {
+	color: rgb(224, 224, 224);
+	text-decoration: none;
+}
+.google_image_icon {
+	height: 150px;
+}
+.google_image_container {
+	display: flex;
+}
+
+.feed_back_form {
+	margin-top: 2em;
+	background-color: rgb(173, 222, 218);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 95%;
+	padding: 12px 0px;
+	font-size: xx-large;
+	font-weight: bold;
+	border-radius: 15px;
+}
+.feedback_note {
+	font-size: xx-large;
+	padding: 0.8em 1em;
+	background-color: transparent;
+}
+.pickup_count {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-evenly;
+}
+.pickup_count label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: rgb(141, 212, 207);
+	border-radius: 8px;
+	padding: 50px;
+}
+.feed_back_form label {
+	margin-top: 1em;
+	font-size: 2em;
+	border-top: 1px solid black;
+}
+.feed_back_form input[type='radio'] {
+	height: 20px;
+	width: 20px;
+}
+.feed_back_form input[type='checkbox'] {
+	margin-top: 1em;
+	height: 40px;
+	width: 40px;
+}
+.feed_back_form input[type='file'] {
+	font-size: 1em;
+	margin-right: -30%;
+}
+
+.feadback_update_button {
+	margin-top: 2em;
+	padding: 30px;
+	font-size: xx-large;
+}
+/* TEST */
+#map {
+	height: 700px;
+	/* The height is 400 pixels */
+	width: 100%;
+	/* The width is the width of the web page */
+	margin-bottom: 5%;
+}
+
+/* admin side */
+.vehicle_list {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	text-align: center;
+}
+.vehicle_div {
+	padding: 1%;
+	margin: 1%;
+	box-shadow: inset;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.vehicle_image {
+	width: 200px;
+}

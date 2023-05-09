@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+
+
+{% block title %}Add vehicle{% endblock  %}
+
+{% block content%}
+    <h2>Add vehicle</h2>
+    <form method="post" enctype="multipart/form-data" type="file" accept="image/*">
+        {% csrf_token %}
+        {{create_vehicle_form | crispy}}
+        <button type="submit" class="btn btn-primary">Create vehicle</button>
+    </form>
+
+{% endblock  %}

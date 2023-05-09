@@ -1,0 +1,38 @@
+{% load template_filters %}
+<div id="stop_list_wraper" 
+    hx-get="{% url 'update_schedule_stops_etas' id %}"
+    hx-trigger="every 200s"
+    >
+    <h3>All Stops from the <span>{{schedule.route_name}}</span> route</h3>
+    <form class="stops-container sortable" name='stop_order_form'
+        hx-trigger="end"
+        hx-post="{% url 'sort_schedule_stop' id%}"
+        hx-target="#stop_list_wraper"
+    >                            
+    {% comment %} <div class="htmx-indicator">Updating...</div> {% endcomment %}
+            {% for stop in all_stops  %}
+            {% comment %} {% if all_etas %}
+                {% with stops_number=stop.stop_number %}
+                    {{all_etas|index:stops_number}}
+                {% endwith %}
+            {% endif %} {% endcomment %}
+                <div class="stop-container">
+                        <input type="hidden" name="stop_ids_in_order" value="{{stop.id}}" />
+                        <div id="stop-number_link"><a title='edit stop' href="{% url 'schedule_stop_detail' stop.id %}">stop# {{stop.stop_number}}</a></div>
+
+                        <div>Customer: {{stop.customer}}</div>
+                        <div>Status: {{stop.status}}</div>
+                        <div>ETA: {{stop.eta | format_seconds}}</div>
+                        <div>Start Time: {{stop.start_time }}</div>
+                        <div>End Time: {{stop.end_time}}</div>
+                        <div>Note: {{stop.note}}</div>
+                        <div>expected_palets {{stop.expected_palets}}</div>
+                        <div>expected_bags {{stop.expected_bags}}</div>
+                        <div>expected_packages {{stop.expected_packages}}</div>
+                        <div>received_palets {{stop.received_palets}}</div>
+                        <div>received_bags {{stop.received_bags}}</div>
+                        <div>received_packages {{stop.received_packages}}</div>
+                </div>
+            {% endfor %}
+        </form>
+</div>

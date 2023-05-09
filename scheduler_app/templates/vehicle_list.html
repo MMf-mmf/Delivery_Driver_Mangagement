@@ -1,0 +1,22 @@
+{% extends 'base.html' %}     
+
+{% block content %}     
+ <a class="nav-item nav-link" href="{% url 'create_vehicle' %}">Create vehicle</a>
+   <h1>vehicle List</h1>
+  {% if vehicles %}
+  <div class='vehicle_list'>
+    {% for vehicle in vehicles %}
+      <div class='vehicle_div'>
+        {% if vehicle.image %}
+          <img class='vehicle_image' src="{{ vehicle.image.url }}" alt="{{ vehicle.name }}">
+         {% else %}
+         <div>No image</div>
+        {% endif %}
+        <a href="{% url 'vehicle_detail' vehicle.id %}">{{ vehicle.name }}</a> ({{vehicle.make}})
+      </div>
+    {% endfor %}
+  </div>
+  {% else %}
+    <p>There are no vehicles in the library.</p>
+  {% endif %} 
+{% endblock  %}

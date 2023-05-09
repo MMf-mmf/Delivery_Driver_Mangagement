@@ -1,0 +1,15 @@
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock  %} {% endcomment %}
+
+{% comment %} {% block   content%} {% endcomment %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+    <h2>Feed Back Form</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form | crispy}}
+        <input type='hidden' name="stop_id" value="{{stop_id}}"/>
+        <button type="submit" class="btn btn-primary">Submit Form</button>
+    </form>
+{% comment %} {% endblock  %} {% endcomment %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Route Stop{% endblock  %}
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+{% block content%}
+    <h2>Create Route Stop</h2>
+
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form | crispy}}
+    <button type="submit" class="btn btn-primary">Create Route Stop</button>
+</form>
+
+{% endblock  %}

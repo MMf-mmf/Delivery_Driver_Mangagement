@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Todys Stops{% endblock  %}
+
+{% block content%}
+<div class="stops_page_wraper">
+
+
+    
+    {% if stops %}
+        {% for stop in stops %}
+    
+        {% include "pagination.html" with page=stops %}
+         <div>{{stops_completed}}/{{stops_count}} stops completed</div>
+        <style>
+                {% if stop.status == 'CP' %}  
+                    body {background-color: rgb(141, 212, 207);}
+                {% else %}
+                    body {    background-color: rgb(249, 151, 44);}
+                {% endif %}
+        </style>
+                {% comment %} 
+                {% if stop.status == 'CP' %}
+                    <h2 class="completed_stop">Completed Stop</h2>
+                {% else %}
+                    <h2 class="incomplete_stop">Incompleted Stop</h2>
+                {% endif %} {% endcomment %}
+
+                
+                        <div class="company_details">
+                        
+                                <a href="https://www.google.com/maps/dir/?api=1&destination={{stop.customer.latitude}},{{stop.customer.longitude}} target="_blank">
+                                    <img class='google_image_icon' title="click to open google maps" src="/static/images/google_maps_icon.png">
+                                </a>
+                            
+                            <div>{{stop.customer.username}}</div>
+                            <div>{{stop.customer.address}}</div>
+                            <div class="contact_number_wraper">Call: {{stop.customer.contact_name}} 
+                                <a class="contact_number"  href="tel:{{stop.customer.contact_number}}">({{stop.customer.contact_number}})</a>
+                            </div>
+                        </div>
+
+                        {% comment %} {% if stop.status == 'IC' %}
+                            <button
+                                id='feed_back'
+                                hx-get="{% url 'driver_feedback' stop.id %}" 
+                                    hx-target="#feed_back"
+                                    hx-swap="outerHTML"
+                                >
+                                    Check In
+                            </button> 
+                        {% endif %} {% endcomment %}
+                
+                        <form class="feed_back_form" method="post" enctype="multipart/form-data" type="file" accept="image/*">
+                            {% csrf_token %}
+                        {{form}}
+                        {% if stop.image %}
+                            <img width="200" src="{{ stop.image.url }}" alt="{{ stop.name }}">
+                         {% endif %}
+                            <input type='hidden' name="stop_id" value="{{stop.id}}"/>
+                            <button class="feadback_update_button" type="submit" class="btn btn-primary">
+                                {% if stop.status == 'CP' %}
+                                    Update Feedback
+                                    {% else %}
+                                    Complete Stop / Submit Feedback
+                                {% endif %}
+                                
+                            </button>
+                        </form>
+           
+            {% endfor %}
+       
+        {% else %}
+        <h1>There are no Stops at at the moment</h1>
+    {% endif %}
+    
+
+
+    {% if stops %}
+        <script src="{% static 'js/getLocation.js' %}" schedule_id='{{schedule_id}}' defer></script>
+    {% endif %}
+</div>
+{% endblock  %}
+
+
+

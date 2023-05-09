@@ -1,0 +1,21 @@
+{% load template_filters %}
+
+<div id="stop_list_wraper">
+    <h3>All Stops from the <span>{{route_name}}</span> route</h3>
+        <form class="stops-container sortable"
+            hx-trigger="end"
+            hx-post="{% url 'sort_route_stop' %}"
+            hx-target="#stop_list_wraper"
+        >
+            {% for stop in all_stops  %}
+                <div class="stop-container">
+                    <input type="hidden" name="stop_ids_in_order" value="{{stop.id}}" />
+                    <div ><a title='Edit Stop' href="{% url 'route_stop_detail' stop.id %}">stop# {{stop.stop_number}}</a></div>
+                    <div>Customer: {{stop.customer}}</div>
+                    <div>General Note: {{stop.general_note}}</div>
+                    <div>ETA: {{stop.eta | format_seconds}}</div>
+                </div>
+            {% endfor %}
+        </form>
+    <br>
+</div>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Schedule Detail{% endblock  %}
+
+{% load crispy_forms_tags %} 
+{% load crispy_forms_filters %}
+{% block content%}
+
+<a class="nav-item nav-link" href="{% url 'create_route_stop' id%}">Add Stop</a>
+
+
+    <h2>Route Details</h2>
+    {% if route %}
+        <div>Route#{{route.id}}  {{route.name}}</div>
+     
+        {% if all_stops %}
+            {% include 'partials/route_stop_list.html' %}
+        {% else %}
+        <br>
+        <h4>No Stops currently associated with this route</h4>
+        {% endif %}
+    {% endif %}
+    
+<form action="{% url 'delete_route' id %}" method="post">
+    <input type="submit" class="btn btn-danger" value="Delete">
+    {% csrf_token %}
+</form>
+
+    <form class="stops-container sortable"
+        hx-post="{% url 'add_etas_to_route_stops' route.id %}"
+        hx-target="#stop_list_wraper"
+    >
+    <input type="submit" class="btn btn-primary" value="Get Stops Eta's">
+</form>
+
+
+{% endblock  %}

@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:14.6
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - DATABASE_NAME = routerApp
+      - DATABASE_USER = postgres
+      - DATABASE_PASSWORD = mendel372
+      # - 'POSTGRES_HOST_AUTH_METHOD=trust'
+
+volumes:
+  postgres_data:
